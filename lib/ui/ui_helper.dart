@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class MyColor {
 
   static const Color bgWColor = Color (0xffffffff);
-  static const Color secondaryWColor = Color (0xffd9dede);
+  static const Color secondaryWColor = Color (0xffdbdbe1);
   static const Color textWColor = Color(0xff2c2c2c);
   static const Color lightTextWColor = Color(0xffb1b1b5);
 
 
   static const Color bgBColor = Color (0xff000000);
-  static const Color secondaryBColor = Color (0xff1E1E1E);
+  static const Color secondaryBColor = Color (0xff737373);
   static const Color textBColor = Color(0xffffffff);
   static const Color lightTextBColor = Color(0xffcccccc);
 
@@ -60,7 +60,7 @@ MaterialColor createMaterialColor(Color color) {
 
 TextStyle mTextStyleBold({
   mColor = Colors.black,
-  mfontSize= 36,
+  mfontSize= 30,
 }){
   return TextStyle(
       fontWeight: FontWeight.bold,
@@ -73,9 +73,10 @@ TextStyle mTextStyleBold({
 TextStyle mTextStyleThin({
   mColor = Colors.black,
   mfontSize= 22,
+  mfontWeight: FontWeight.normal,
 }){
   return TextStyle(
-      fontWeight: FontWeight.normal,
+      fontWeight: mfontWeight,
       color: mColor,
       fontFamily: 'Roboto',
       fontSize: mfontSize,
