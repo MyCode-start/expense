@@ -1,7 +1,7 @@
 
 
 import 'dart:async';
-import 'package:expentappbysir/screens/user_onboarding/login_screen.dart';
+import 'package:expentappbysir/screens/user_onboarding/login/login_screen.dart';
 import 'package:expentappbysir/ui/custom_widgets/custom_logo.dart';
 import 'package:flutter/material.dart';
 
