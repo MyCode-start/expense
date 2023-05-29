@@ -12,10 +12,11 @@ class customRoundedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(onPressed: callback, 
-        child: Text(text),
+        child: Text(text, style: mTextStyleBold(mfontSize: 17,
+            mColor: Theme.of(context).backgroundColor)),
       style: ElevatedButton.styleFrom(
         primary: Theme.of(context).brightness == Brightness.light ?
-        MyColor.secondaryWColor :  MyColor.secondaryBColor,
+        MyColor.secondaryBColor :  MyColor.secondaryWColor,
       ),
     );
   }
