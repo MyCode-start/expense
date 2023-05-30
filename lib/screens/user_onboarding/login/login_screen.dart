@@ -168,10 +168,9 @@ class _login_screenState extends State<login_screen> {
             Expanded(flex: 1, child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                color: Colors.blue,
                 width: double.infinity,
-                height: 400,
-                child: Image.asset('assets/images/login.png'),
+                height: 800,
+                child: Image.asset('assets/images/check.png'),
               ),
             )),
             Expanded(flex: 1, child:  Center(
