@@ -5,6 +5,7 @@ import '../../../ui/custom_widgets/custom_logo.dart';
 import '../../../ui/custom_widgets/custom_roundedbutton.dart';
 import '../../../ui/custom_widgets/custom_textfield.dart';
 import '../../../ui/ui_helper.dart';
+import '../login/login_screen.dart';
 
 class signupScreen extends StatefulWidget {
 
@@ -148,7 +149,7 @@ class _signupScreenState extends State<signupScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => signupScreen()),
+                        MaterialPageRoute(builder: (context) => login_screen(),),
                       );
 
                     }, child: Text ('Login Now!', style:
@@ -165,10 +166,11 @@ class _signupScreenState extends State<signupScreen> {
                 TextButton(
                     onPressed: () {
 
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => signupScreen()),
-                      );
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => login_screen(),));
+
 
                     }, child: Text ('Login Now!', style:
                 mTextStyleThin(mColor: Theme.of(context).canvasColor, mfontSize: 12))

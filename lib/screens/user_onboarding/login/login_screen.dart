@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 
 import '../signup/sign_up_screen.dart';
 
+
 class login_screen extends StatefulWidget {
 
 
@@ -38,7 +39,7 @@ class _login_screenState extends State<login_screen> {
 
     var width = MediaQuery.of(context).size.width;
 
-    return Center(
+    return MediaQuery.of(context).orientation== Orientation.portrait ?  Center(
       child: Padding(
         padding: const EdgeInsets.all(21),
         child: Column(
@@ -81,7 +82,7 @@ class _login_screenState extends State<login_screen> {
 
             customTextField (mController: emailcontroller,
               mIcon: Icons.email_outlined,
-                isPassword: false,
+              isPassword: false,
               mFillcolor: Theme.of(context).brightness == Brightness.light
                   ? MyColor.secondaryWColor: MyColor.secondaryBColor,),
             SizedBox(
@@ -125,13 +126,13 @@ class _login_screenState extends State<login_screen> {
                 Text('Don\'t have registration yet?', style:
                 mTextStyleThin(mColor: Theme.of(context).brightness== Brightness.light? MyColor.textWColor : MyColor.textBColor, mfontSize: 12)),
                 TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => signupScreen()),
-                    );
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => signupScreen()),
+                      );
 
-                }, child: Text ('Register Now', style:
+                    }, child: Text ('Register Now', style:
                 mTextStyleThin(mColor: Theme.of(context).canvasColor, mfontSize: 12))
 
                 ),
@@ -161,7 +162,146 @@ class _login_screenState extends State<login_screen> {
           ],
         ),
       ),
-    );
+    ) : 
+        Row(
+          children: [
+            Expanded(flex: 1, child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                color: Colors.blue,
+                width: double.infinity,
+                height: 400,
+                child: Image.asset('assets/images/login.png'),
+              ),
+            )),
+            Expanded(flex: 1, child:  Center(
+              child: Padding(
+                padding: const EdgeInsets.all(21),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    width > 600 ? customLogo( mSize: 40,
+                      mBgColor: Theme.of(context).canvasColor,
+                      mIconColor: Theme.of(context).backgroundColor,): customLogo( mSize: 30,
+                      mBgColor: Theme.of(context).canvasColor,
+                      mIconColor: Theme.of(context).backgroundColor,),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    width > 600 ? Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Hello, Again', style: mTextStyleBold(mfontSize: 28, mColor: Theme.of(context).canvasColor,)),
+                        Image.asset('assets/images/wave.png', width: 35, height: 35),
+                      ],
+                    ) : Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Hello, Again', style: mTextStyleBold(mfontSize: 15, mColor: Theme.of(context).canvasColor,)),
+                        Image.asset('assets/images/wave.png', width: 22, height: 22),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    width > 600 ? Text('Welcome back, you\'ve been missed!',
+                        style:  mTextStyleThin(mColor: Theme.of(context).shadowColor, mfontSize: 14)) : Text('Welcome back, you\'ve been missed!',
+                        style:  mTextStyleThin(mColor: Theme.of(context).shadowColor, mfontSize: 12)),
+
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                    /////////////////////////////////////////////////////////////////////////////
+
+
+                    customTextField (mController: emailcontroller,
+                      mIcon: Icons.email_outlined,
+                      isPassword: false,
+                      mFillcolor: Theme.of(context).brightness == Brightness.light
+                          ? MyColor.secondaryWColor: MyColor.secondaryBColor,),
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                    customTextField (mController: passwordcontroller ,
+                      mIcon: Icons.lock_outline,
+                      isPassword: true,
+                      mFillcolor:Theme.of(context).brightness == Brightness.light
+                          ? MyColor.secondaryWColor : MyColor.secondaryBColor,),
+                    SizedBox(
+                      height: 20,
+                    ),
+
+
+                    Row (
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text('Forget Password?', style:
+                        mTextStyleThin(mColor: Theme.of(context).canvasColor, mfontSize: 11))
+                      ],
+                    ),
+
+                    SizedBox(
+                      height: 20,
+                    ),
+
+                    SizedBox(
+                        width: double.infinity,
+                        height: 40,
+                        child: customRoundedButton(callback: () {}, text: 'Log In', )),
+
+                    SizedBox(
+                      height: 20,
+                    ),
+
+                    MediaQuery.of(context).size.width >300 ? Row (
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Don\'t have registration yet?', style:
+                        mTextStyleThin(mColor: Theme.of(context).brightness== Brightness.light? MyColor.textWColor : MyColor.textBColor, mfontSize: 12)),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => signupScreen()),
+                              );
+
+                            }, child: Text ('Register Now', style:
+                        mTextStyleThin(mColor: Theme.of(context).canvasColor, mfontSize: 12))
+
+                        ),
+
+                      ],
+                    ) : Column (
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Don\'t have registration yet?', style:
+                        mTextStyleThin(mColor: Theme.of(context).brightness== Brightness.light? MyColor.textWColor : MyColor.textBColor, mfontSize: 12)),
+                        TextButton(
+                            onPressed: () {
+
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => signupScreen()),
+                              );
+
+                            }, child: Text ('Register Now', style:
+                        mTextStyleThin(mColor: Theme.of(context).canvasColor, mfontSize: 12))
+
+                        ),
+
+                      ],
+                    )
+
+                  ],
+                ),
+              ),
+            ))
+          ],
+        );
+    
+    
   }
 }
 
