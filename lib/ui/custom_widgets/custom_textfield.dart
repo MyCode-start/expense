@@ -27,11 +27,23 @@ class _customTextFieldState extends State<customTextField> {
 
  @override
   Widget build(BuildContext context) {
-    return widget.isPassword ? TextField(
+    return widget.isPassword ? TextFormField(
+
+
+      validator: (value) {
+
+        if(value== null || value.isEmpty) {
+          return 'Field is empty';
+        }
+        return null;
+      },
+
+
       cursorColor: Theme.of(context).brightness== Brightness.light? MyColor.textWColor : MyColor.textBColor,
       style: mTextStyleThin (mfontSize: 17, mColor:  Theme.of(context).brightness == Brightness.light
           ? MyColor.textWColor
           : MyColor.textBColor),
+
       controller:widget.mController,
       obscureText: !passVisible,
       obscuringCharacter: "*",
@@ -73,7 +85,17 @@ class _customTextFieldState extends State<customTextField> {
         )
       ),
 
-    ) : TextField(
+
+    ) : TextFormField(
+
+      validator: (value) {
+
+        if(value== null || value.isEmpty) {
+          return 'Field is empty';
+        }
+        return null;
+      },
+
       cursorColor: Theme.of(context).brightness== Brightness.light? MyColor.textWColor : MyColor.textBColor,
       style: mTextStyleThin (mfontSize: 17, mColor:  Theme.of(context).brightness == Brightness.light
           ? MyColor.textWColor
