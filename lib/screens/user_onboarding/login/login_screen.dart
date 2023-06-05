@@ -1,5 +1,6 @@
 
 
+import 'package:expentappbysir/screens/home/homescreen.dart';
 import 'package:expentappbysir/ui/custom_widgets/custom_logo.dart';
 import 'package:expentappbysir/ui/custom_widgets/custom_roundedbutton.dart';
 import 'package:expentappbysir/ui/custom_widgets/custom_textfield.dart';
@@ -7,6 +8,7 @@ import 'package:expentappbysir/ui/ui_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../forgetpas/forgetpassword.dart';
 import '../signup/sign_up_screen.dart';
 
 
@@ -69,7 +71,7 @@ class _login_screenState extends State<login_screen> {
                 SizedBox(
                   height: 10,
                 ),
-                constraints.maxWidth > 600 ? Row(
+                constraints.maxWidth > 500 ? Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('Hello, Again', style: mTextStyleBold(mfontSize: 28, mColor: Theme.of(context).canvasColor,)),
@@ -85,7 +87,7 @@ class _login_screenState extends State<login_screen> {
                 SizedBox(
                   height: 10,
                 ),
-                width > 600 ? Text('Welcome back, you\'ve been missed!',
+                constraints.maxWidth > 500 ? Text('Welcome back, you\'ve been missed!',
                     style:  mTextStyleThin(mColor: Theme.of(context).shadowColor, mfontSize: 14)) : Text('Welcome back, you\'ve been missed!',
                     style:  mTextStyleThin(mColor: Theme.of(context).shadowColor, mfontSize: 12)),
 
@@ -118,9 +120,17 @@ class _login_screenState extends State<login_screen> {
                 Row (
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text('Forget Password?', style:
-                    mTextStyleThin(mColor: Theme.of(context).canvasColor, mfontSize: 11))
-                  ],
+                    TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => forgetpassword()),
+                      );
+
+                      }, child: Text ('Forget Password?', style:
+                    mTextStyleThin(mColor: Theme.of(context).canvasColor, mfontSize: 11)),
+                    ),
+                  ]
                 ),
 
                 SizedBox(
@@ -132,10 +142,8 @@ class _login_screenState extends State<login_screen> {
                     height: 40,
                     child: customRoundedButton(callback: () {
 
-
-
                       if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
+                        /*ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Row(
                             children: [
                               Icon(Icons.downloading, color: Theme.of(context).brightness ==
@@ -146,6 +154,13 @@ class _login_screenState extends State<login_screen> {
                             Text('Processing Data'),
                            ],
                           )),
+
+
+                        );*/
+
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => homescreen()),
                         );
 
                         /*Fluttertoast.showToast(
@@ -159,7 +174,7 @@ class _login_screenState extends State<login_screen> {
                   height: 20,
                 ),
 
-                constraints.maxWidth >600 ? Row (
+                constraints.maxWidth >450 ? Row (
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('Don\'t have registration yet?', style:

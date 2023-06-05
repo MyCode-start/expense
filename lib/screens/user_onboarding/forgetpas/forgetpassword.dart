@@ -2,11 +2,12 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../home/homescreen.dart';
+
 import '../../../ui/custom_widgets/custom_logo.dart';
 import '../../../ui/custom_widgets/custom_roundedbutton.dart';
 import '../../../ui/custom_widgets/custom_textfield.dart';
 import '../../../ui/ui_helper.dart';
+import '../../home/homescreen.dart';
 
 class forgetpassword extends StatefulWidget {
   const forgetpassword({Key? key}) : super(key: key);
@@ -131,15 +132,17 @@ class _forgetpasswordState extends State<forgetpassword> {
                               content: Text('Check Email to Reset'),
                               action: SnackBarAction(
                                 label: 'Open',
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => homescreen()),
+                                  );
+                                },
                               ),
                             ),
                           );
 
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => homescreen()),
-                          );
+
                         }
                       },
                       text: 'Reset Password',

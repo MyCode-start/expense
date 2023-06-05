@@ -2,11 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../../../home/homescreen.dart';
+
 import '../../../ui/custom_widgets/custom_logo.dart';
 import '../../../ui/custom_widgets/custom_roundedbutton.dart';
 import '../../../ui/custom_widgets/custom_textfield.dart';
 import '../../../ui/ui_helper.dart';
+import '../../home/homescreen.dart';
 import '../login/login_screen.dart';
 
 class signupScreen extends StatefulWidget {
@@ -77,14 +78,12 @@ class _signupScreenState extends State<signupScreen> {
                 constraints.maxWidth > 600 ? Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Get Started', style: mTextStyleBold(mfontSize: 28, mColor: Theme.of(context).canvasColor,)),
-                    Image.asset('assets/images/wave.png', width: 35, height: 35),
+                    Text('Get Started!', style: mTextStyleBold(mfontSize: 28, mColor: Theme.of(context).canvasColor,)),
                   ],
                 ) : Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Get Started', style: mTextStyleBold(mfontSize: 15, mColor: Theme.of(context).canvasColor,)),
-                    Image.asset('assets/images/wave.png', width: 22, height: 22),
+                    Text('Get Started!', style: mTextStyleBold(mfontSize: 15, mColor: Theme.of(context).canvasColor,)),
                   ],
                 ),
                 SizedBox(
