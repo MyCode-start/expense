@@ -1,3 +1,4 @@
+import 'package:expentappbysir/screens/home/homescreen.dart';
 import 'package:expentappbysir/screens/splash/splash_screen.dart';
 import 'package:expentappbysir/ui/ui_helper.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
           shadowColor: MyColor.lightTextWColor),
 
 
-      home: splash_screen(),
+      home: homescreen(),
     );
   }
 }
