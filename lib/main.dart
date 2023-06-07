@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       darkTheme: ThemeData(
           brightness: Brightness.dark,
           primarySwatch: createMaterialColor(MyColor.bgBColor),
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           shadowColor: MyColor.lightTextWColor),
 
 
-      home: homescreen(),
+      home: splash_screen(),
     );
   }
 }

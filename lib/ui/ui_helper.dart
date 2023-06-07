@@ -82,3 +82,16 @@ TextStyle mTextStyleThin({
       fontSize: mfontSize,
   );
 }
+
+TextStyle mTextStyleForTrans({
+  mColor = Colors.black,
+  mfontSize= 30,
+  mfontWeight= FontWeight.bold,
+}){
+  return TextStyle(
+    fontWeight: mfontWeight,
+    color: mColor,
+    fontFamily: 'Roboto',
+    fontSize: mfontSize,
+  );
+}
