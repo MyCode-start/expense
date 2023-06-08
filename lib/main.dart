@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           shadowColor: MyColor.lightTextWColor),
 
 
-      home: splash_screen(),
+      home: homescreen(),
     );
   }
 }

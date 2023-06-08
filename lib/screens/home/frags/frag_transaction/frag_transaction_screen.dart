@@ -1,3 +1,5 @@
+import 'package:expentappbysir/screens/home/frags/frag_stats/add_expenses.dart';
+import 'package:expentappbysir/ui/custom_widgets/custom_roundedbutton.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../constants.dart';
@@ -28,9 +30,20 @@ class fragTransactionScreen extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: Padding(
                       padding: const EdgeInsets.all(2.0),
-                      child: CircleAvatar(
-                        backgroundColor: Theme.of(context).canvasColor,
-                        child: Icon(Icons.add, size: 15, color: Theme.of(context).backgroundColor),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => addExpenses()),
+                          );
+                        },
+                        child: CircleAvatar(
+                          backgroundColor: Theme.of(context).canvasColor,
+                          child: Icon(
+                              Icons.add,
+                              size: 15,
+                              color: Theme.of(context).backgroundColor),
+                        ),
                       ),
                     ),
                   )
@@ -47,15 +60,34 @@ class fragTransactionScreen extends StatelessWidget {
                         Text('Spent this week', style: mTextStyleThin(mfontSize: 12, mColor:Theme.of(context).shadowColor)),
                         RichText(text: TextSpan(
                             children: [
-                              TextSpan(
-                                  text: '\$', style: mTextStyleThin(mfontSize: 15, mfontWeight: FontWeight.bold, mColor:Theme.of(context).shadowColor)
+                             /* TextSpan(
+                                  text: '\$', style: mTextStyleThin(mfontSize: 15, mfontWeight: FontWeight.bold, mColor:Theme.of(context).shadowColor),
+                              ),*/
+                              WidgetSpan(
+                                child: Transform.translate(
+                                  offset: const Offset(0.0, -15),
+                                  child: Text(
+                                    '\$',
+                                    style: mTextStyleThin(mfontSize: 15, mfontWeight: FontWeight.bold, mColor:Theme.of(context).shadowColor),
+                                  ),
+                                ),
                               ),
                               TextSpan(
                                   text: '292', style: mTextStyleForTrans(mfontSize: 43, mfontWeight: FontWeight.w900, mColor:Theme.of(context).canvasColor)
                               ),
-                              TextSpan(
-                                  text: '.50', style: mTextStyleForTrans(mfontSize: 19, mfontWeight: FontWeight.w900, mColor:Theme.of(context).canvasColor)
+                              WidgetSpan(
+                                child: Transform.translate(
+                                  offset: const Offset(0.0, -15),
+                                  child: Text(
+                                    '.50',
+                                    style: mTextStyleThin(mfontSize: 15, mfontWeight: FontWeight.bold, mColor:Theme.of(context).shadowColor),
+                                  ),
+                                ),
                               ),
+
+                              /*TextSpan(
+                                  text: '.50', style: mTextStyleForTrans(mfontSize: 19, mfontWeight: FontWeight.w900, mColor:Theme.of(context).canvasColor)
+                              ),*/
 
                             ]
                         ))
@@ -80,116 +112,188 @@ class fragTransactionScreen extends StatelessWidget {
       children: [
         Expanded(
           flex: 4,
-          child: Column(
+          child:  MediaQuery.of(context).size.height> 350 ? Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                flex: 2,
-                child: Container(
-                    color: Theme.of(context).backgroundColor,
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: MediaQuery.of(context).size.height> 400 ? Container(
-                    color: Theme.of(context).backgroundColor,
-                    width: double.infinity,
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children:[
-                          Text('Spent this week', style: mTextStyleThin(mfontSize: 18, mColor:Theme.of(context).shadowColor)),
-                          RichText(text: TextSpan(
-                              children: [
-                                TextSpan(
-                                    text: '\$', style: mTextStyleThin(mfontSize: 22, mfontWeight: FontWeight.bold, mColor:Theme.of(context).shadowColor)
+             Container(
+                  color: Theme.of(context).backgroundColor,
+                  width: double.infinity,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:[
+                        Text('Spent this week', style: mTextStyleThin(mfontSize: 15, mColor:Theme.of(context).shadowColor)),
+                        RichText(text: TextSpan(
+                            children: [
+                              /*TextSpan(
+                                  text: '\$', style: mTextStyleThin(mfontSize: 22, mfontWeight: FontWeight.bold, mColor:Theme.of(context).shadowColor)
+                              ),*/
+                              WidgetSpan(
+                                child: Transform.translate(
+                                  offset: const Offset(0.0, -15),
+                                  child: Text(
+                                    '\$',
+                                    style: mTextStyleThin(mfontSize: 22, mfontWeight: FontWeight.bold, mColor:Theme.of(context).shadowColor),
+                                  ),
                                 ),
-                                TextSpan(
-                                    text: '292', style: mTextStyleForTrans(mfontSize: 53, mfontWeight: FontWeight.w900, mColor:Theme.of(context).canvasColor)
-                                ),
-                                TextSpan(
-                                    text: '.50', style: mTextStyleForTrans(mfontSize: 26, mfontWeight: FontWeight.w900, mColor:Theme.of(context).canvasColor)
-                                ),
+                              ),
+                              TextSpan(
+                                  text: '292', style: mTextStyleForTrans(mfontSize: 53, mfontWeight: FontWeight.w900, mColor:Theme.of(context).canvasColor)
+                              ),
 
-                              ]
-                          ))
-                        ]
-                    )
-                ) :  SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Container(
-                      color: Theme.of(context).backgroundColor,
-                      width: double.infinity,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children:[
-                            Text('Spent this week', style: mTextStyleThin(mfontSize: 14, mColor:Theme.of(context).shadowColor)),
-                            RichText(text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                      text: '\$', style: mTextStyleThin(mfontSize: 16, mfontWeight: FontWeight.bold, mColor:Theme.of(context).shadowColor)
-                                  ),
-                                  TextSpan(
-                                      text: '292', style: mTextStyleForTrans(mfontSize: 28, mfontWeight: FontWeight.w900, mColor:Theme.of(context).canvasColor)
-                                  ),
-                                  TextSpan(
-                                      text: '.50', style: mTextStyleForTrans(mfontSize: 18, mfontWeight: FontWeight.w900, mColor:Theme.of(context).canvasColor)
-                                  ),
+                             /* TextSpan(
+                                  text: '.50', style: mTextStyleForTrans(mfontSize: 26, mfontWeight: FontWeight.w900, mColor:Theme.of(context).canvasColor)
+                              ),*/
 
-                                ]
-                            ))
-                          ]
-                      )
-                  ),
-                )
+                              WidgetSpan(
+                                child: Transform.translate(
+                                  offset: const Offset(0.0, -15),
+                                  child: Text(
+                                    '.50',
+                                    style: mTextStyleThin(mfontSize: 26, mfontWeight: FontWeight.bold, mColor:Theme.of(context).shadowColor),
+                                  ),
+                                ),
+                              ),
+
+                            ]
+                        ))
+                      ]
+                  )
               ),
+              SizedBox(
+                height: 21,
+              ),
+              SizedBox(
+                width: 130,
+                height: 40,
+                child: customRoundedButton(callback: () {
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => addExpenses()),
+                  );
+
+                }, text: "A", mchild: Row (
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      flex:1,
+                      child: CircleAvatar(
+                          backgroundColor: Theme.of(context).backgroundColor,
+                          child: Icon (Icons.add, color: Theme.of(context).canvasColor)),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(
+                        flex: 3,
+                        child: Text ('Add Expense', style: mTextStyleBold(mfontSize: 12, mColor:Theme.of(context).backgroundColor) ))
+                  ]
+                ),),
+              )
+
             ]
-          ),
+          ) : SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                        color: Theme.of(context).backgroundColor,
+                        width: double.infinity,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children:[
+                              Text('Spent this week', style: mTextStyleThin(mfontSize: 10, mColor:Theme.of(context).shadowColor)),
+                              RichText(text: TextSpan(
+                                  children: [
+                                  /*  TextSpan(
+                                        text: '\$', style: mTextStyleThin(mfontSize: 13, mfontWeight: FontWeight.bold, mColor:Theme.of(context).shadowColor)
+                                    ),*/
+                                    WidgetSpan(
+                                      child: Transform.translate(
+                                        offset: const Offset(0.0, -8),
+                                        child: Text(
+                                          '\$',
+                                          style: mTextStyleThin(mfontSize: 13, mfontWeight: FontWeight.bold, mColor:Theme.of(context).shadowColor),
+                                        ),
+                                      ),
+                                    ),
+                                    TextSpan(
+                                        text: '292', style: mTextStyleForTrans(mfontSize: 25, mfontWeight: FontWeight.w900, mColor:Theme.of(context).canvasColor)
+                                    ),
+
+                                    WidgetSpan(
+                                      child: Transform.translate(
+                                        offset: const Offset(0.0, -8),
+                                        child: Text(
+                                          '.50',
+                                          style: mTextStyleThin(mfontSize: 13, mfontWeight: FontWeight.bold, mColor:Theme.of(context).shadowColor),
+                                        ),
+                                      ),
+                                    ),
+                                   /* TextSpan(
+                                        text: '.50', style: mTextStyleForTrans(mfontSize: 18, mfontWeight: FontWeight.w900, mColor:Theme.of(context).canvasColor)
+                                    ),*/
+
+                                  ]
+                              ))
+                            ]
+                        )
+                    ),
+                    SizedBox(
+                      height: 18,
+                    ),
+                    SizedBox(
+                      width: 90,
+                      height: 30,
+                      child: customRoundedButton(callback: () {
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => addExpenses()),
+                        );
+
+                      }, text: "A", mchild: Row (
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex:1,
+                              child: CircleAvatar(
+                                  backgroundColor: Theme.of(context).backgroundColor,
+                                  child: Icon (Icons.add, size: 10, color: Theme.of(context).canvasColor)),
+                            ),
+                            SizedBox(
+                              width: 3,
+                            ),
+                            Expanded(
+                                flex: 3,
+                                child: Text ('Add Expense', style: mTextStyleBold(mfontSize: 7, mColor:Theme.of(context).backgroundColor) ))
+                          ]
+                      ),),
+                    )
+
+                  ]
+              ),
+            ),
+          )
         ),
-
-
-
 
 
         Expanded(
           flex: 4,
-          child: Column(
-            children: [
-
-              Expanded(
-                flex:1,
-                child:  Container(
-                    color: Theme.of(context).backgroundColor,
-                    width: double.infinity,
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 15, top: 15),
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: CircleAvatar(
-                          backgroundColor: Theme.of(context).canvasColor,
-                          radius: 15,
-                          child: Icon(Icons.add, size: 18, color: Theme.of(context).backgroundColor),
-                        ),
-                      ),
-                    )
-                ),
-
-                ),
-
-              Expanded(
-                flex: 3,
-                child: ListView.builder(
+          child: ListView.builder(
                     itemCount: Constants.arrTransaction.length,
                     shrinkWrap: true,
                     itemBuilder: (context, index)=> dayWiseTransactionItem(context, Constants.arrTransaction[index] )),
-              ),
-            ],
-          ),
+
         ),
 
       ]
     );
 
   }
-
 
 
   Widget dayWiseTransactionItem(BuildContext context, Map dayWiseTransDetails) {
@@ -237,8 +341,6 @@ class fragTransactionScreen extends StatelessWidget {
     );
   }
 }
-
-
 
 
 

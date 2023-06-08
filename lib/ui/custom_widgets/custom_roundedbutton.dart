@@ -6,13 +6,14 @@ class customRoundedButton extends StatelessWidget {
 
   VoidCallback callback;
   String text;
+  Widget? mchild;
 
-  customRoundedButton ({required this.callback, required this.text});
+  customRoundedButton ({required this.callback, required this.text, this.mchild});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(onPressed: callback, 
-        child: Text(text, style: mTextStyleBold(mfontSize: 17,
+        child: mchild ?? Text(text, style: mTextStyleBold(mfontSize: 17,
             mColor: Theme.of(context).backgroundColor)),
       style: ElevatedButton.styleFrom(
         primary: Theme.of(context).brightness == Brightness.light ?

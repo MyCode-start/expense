@@ -109,4 +109,36 @@ class Constants {
 
   ];
 
+
+  static const imgDrug = 'assets/images/category/drugs.png';
+  static const imgEducation = 'assets/images/category/education.png';
+  static const imgEmployee = 'assets/images/category/employee.png';
+  static const imgFastFood = 'assets/images/category/fast-food.png';
+  static const imgGrocery = 'assets/images/category/grocery.png';
+  static const imgHappy = 'assets/images/category/happy.png';
+  static const imgMan = 'assets/images/category/man(1).png';
+  static const imgMarket = 'assets/images/category/market.png';
+  static const imgOnlineShopping = 'assets/images/category/online-shopping.png';
+  static const imgSigning = 'assets/images/category/signing.png';
+  static const imgTaxi = 'assets/images/category/taxi.png';
+  static const imgVideoPlayer = 'assets/images/category/video-player.png';
+
+
+  static const arrCategories = [
+
+  imgDrug,
+  imgEducation,
+  imgEmployee,
+  imgFastFood,
+  imgGrocery,
+  imgHappy,
+  imgMan,
+  imgMarket,
+  imgOnlineShopping,
+  imgSigning,
+  imgTaxi,
+  imgVideoPlayer,
+
+  ];
+
 }
