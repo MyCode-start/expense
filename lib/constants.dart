@@ -126,18 +126,52 @@ class Constants {
 
   static const arrCategories = [
 
-  imgDrug,
-  imgEducation,
-  imgEmployee,
-  imgFastFood,
-  imgGrocery,
-  imgHappy,
-  imgMan,
-  imgMarket,
-  imgOnlineShopping,
-  imgSigning,
-  imgTaxi,
-  imgVideoPlayer,
+    {'image': imgDrug,
+    'name': 'Medicine'
+    },
+
+    {'image': imgEducation,
+      'name': 'School'
+    },
+
+    {'image': imgEmployee,
+      'name': 'Salary'
+    },
+
+
+    {'image': imgFastFood,
+      'name': 'Zomato'
+    },
+
+
+    {'image': imgGrocery,
+      'name': 'Grocery'
+    },
+
+    {'image':  imgHappy,
+      'name': 'Pet'
+    },
+
+    {'image': imgMarket,
+      'name': 'Share Market'
+    },
+
+    {'image':  imgOnlineShopping,
+      'name': 'Shopping'
+    },
+    {'image':  imgSigning,
+      'name': 'Loan'
+    },
+
+    {'image':  imgTaxi,
+      'name': 'Uber'
+    },
+
+    {'image':  imgVideoPlayer,
+      'name': 'Movie'
+    },
+
+
 
   ];
 

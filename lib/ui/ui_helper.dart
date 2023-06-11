@@ -58,9 +58,9 @@ MaterialColor createMaterialColor(Color color) {
 
 
 
-TextStyle mTextStyleBold({
+/*TextStyle mTextStyleBold({
   mColor = Colors.black,
-  mfontSize= 30,
+   mfontSize= 30,
 }){
   return TextStyle(
       fontWeight: FontWeight.bold,
@@ -68,9 +68,17 @@ TextStyle mTextStyleBold({
       fontFamily: 'Roboto',
       fontSize: mfontSize,
   );
+}*/
+
+TextStyle mTextStyleBold({double mfontSize = 22, Color mColor = Colors.black}) {
+  return TextStyle(
+    fontSize: mfontSize, // Make sure mfontSize is of type double
+    fontWeight: FontWeight.bold,
+    color: mColor,
+  );
 }
 
-TextStyle mTextStyleThin({
+/*TextStyle mTextStyleThin({
   mColor = Colors.black,
   mfontSize= 22,
   mfontWeight: FontWeight.normal,
@@ -81,9 +89,36 @@ TextStyle mTextStyleThin({
       fontFamily: 'Roboto',
       fontSize: mfontSize,
   );
+}*/
+
+TextStyle mTextStyleThin({
+  Color mColor = Colors.black, // Specify the type as Color
+  double mfontSize = 22, // Specify the type as double
+  FontWeight mfontWeight = FontWeight.normal, // Specify the type as FontWeight
+}) {
+  return TextStyle(
+    fontWeight: mfontWeight,
+    color: mColor,
+    fontFamily: 'Roboto',
+    fontSize: mfontSize,
+  );
 }
 
+
 TextStyle mTextStyleForTrans({
+  Color mColor = Colors.black, // Specify the type as Color
+  double mfontSize = 30, // Specify the type as double
+  FontWeight mfontWeight = FontWeight.bold, // Specify the type as FontWeight
+}) {
+  return TextStyle(
+    fontWeight: mfontWeight,
+    color: mColor,
+    fontFamily: 'Roboto',
+    fontSize: mfontSize,
+  );
+}
+
+/*TextStyle mTextStyleForTrans({
   mColor = Colors.black,
   mfontSize= 30,
   mfontWeight= FontWeight.bold,
@@ -94,4 +129,4 @@ TextStyle mTextStyleForTrans({
     fontFamily: 'Roboto',
     fontSize: mfontSize,
   );
-}
+}*/
