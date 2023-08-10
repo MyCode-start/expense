@@ -1,4 +1,4 @@
-import 'package:expentappbysir/screens/home/frags/frag_stats/add_expenses.dart';
+import 'package:expentappbysir/screens/home/frags/frag_transaction/add_expenses.dart';
 import 'package:expentappbysir/ui/custom_widgets/custom_roundedbutton.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +11,13 @@ class fragTransactionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
-        body: MediaQuery.of(context).orientation == Orientation.portrait ? portraiteUI (context) : landscapeUI (context),
+    return SafeArea(
+      top: true,
+      child: Scaffold(
+          backgroundColor: Theme.of(context).backgroundColor,
+          body: MediaQuery.of(context).orientation == Orientation.portrait ? portraiteUI (context) : landscapeUI (context),
 
+      ),
     );
   }
 

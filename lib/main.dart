@@ -1,11 +1,27 @@
+import 'package:expentappbysir/bloc/for_expense/expense_bloc.dart';
+import 'package:expentappbysir/screens/home/frags/frag_transaction/add_expenses.dart';
 import 'package:expentappbysir/screens/home/homescreen.dart';
 import 'package:expentappbysir/screens/splash/splash_screen.dart';
 import 'package:expentappbysir/ui/ui_helper.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
+import 'bloc/for_category/expense_type_bloc.dart';
+import 'db_helper.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider<ExpenseBloc>(
+      create: (BuildContext context) => ExpenseBloc(dbHelper: DBHelper()),
+    ),
+
+    BlocProvider<ExpenseTypeBloc>(
+      create: (BuildContext context) => ExpenseTypeBloc(),
+    ),
+  ], child: const MyApp(),));
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp();
@@ -16,7 +32,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       darkTheme: ThemeData(
           brightness: Brightness.dark,
           primarySwatch: createMaterialColor(MyColor.bgBColor),
@@ -32,7 +48,7 @@ class MyApp extends StatelessWidget {
           shadowColor: MyColor.lightTextWColor),
 
 
-      home: homescreen(),
+      home: addExpenses(),
     );
   }
 }

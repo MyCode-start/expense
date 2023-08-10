@@ -44,11 +44,20 @@ class _homescreenState extends State<homescreen> {
           backgroundColor: Theme.of(context).brightness==Brightness.light ?
           MyColor.secondaryWColor : MyColor.secondaryBColor,
           items: [
-          BottomNavigationBarItem(icon: Icon(Icons.inbox_outlined,
+          BottomNavigationBarItem(
+
+
+              icon: Icon(Icons.inbox_outlined,
             color: Theme.of(context).brightness==Brightness.light ?
-          MyColor.secondaryBColor : MyColor.secondaryWColor, ), label: '',
+          MyColor.secondaryBColor : MyColor.secondaryWColor, ),
+              label: '',
+
             activeIcon: Icon(Icons.inbox_rounded,  color: Theme.of(context).brightness==Brightness.light ?
-            MyColor.bgBColor : MyColor.bgWColor, ), tooltip: 'Expense'),
+            MyColor.bgBColor : MyColor.bgWColor, ),
+
+              tooltip: 'Expense'
+
+          ),
 
 
 
