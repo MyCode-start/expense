@@ -31,9 +31,8 @@ class _signupScreenState extends State<signupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme
-            .of(context)
-            .backgroundColor,
+        backgroundColor: Theme.of(context).backgroundColor,
+
         body: MediaQuery.of(context).orientation == Orientation.portrait ? MediaQuery.of(context).size.height > 600 ? mainSUI() : SingleChildScrollView(
           child: mainSUI(),
         ) :  Row(
